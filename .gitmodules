@@ -1,0 +1,3 @@
+[submodule "cores/nes"]
+	path = cores/nes
+	url = https://github.com/libretro/QuickNES_Core.git

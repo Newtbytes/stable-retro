@@ -27,7 +27,7 @@ struct EmulatorTestParamName {
 };
 
 void EmulatorTest::SetUp() {
-	for (const string& core : { "fceumm", "gambatte", "genesis_plus_gx", "mednafen_pce_fast", "mgba", "snes9x", "stella", "picodrive" }) {
+	for (const string& core : { "quicknes", "gambatte", "genesis_plus_gx", "mednafen_pce_fast", "mgba", "snes9x", "stella", "picodrive" }) {
 		ifstream in("../retro/cores/" + core + ".json");
 		ostringstream out;
 		Retro::corePath("../retro/cores");

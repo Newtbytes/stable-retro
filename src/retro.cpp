@@ -94,6 +94,10 @@ struct PyRetroEmulator {
 		return py::make_tuple(m_re.getImageWidth(), m_re.getImageHeight());
 	}
 
+	void setAVEnabled(py::bool_ audio, py::bool_ video) {
+		m_re.setAVFlags(audio, video);
+	}
+
 	void setButtonMask(py::array_t<uint8_t> mask, unsigned player) {
 		if (mask.size() > N_BUTTONS) {
 			throw std::runtime_error("mask.size() > N_BUTTONS");
@@ -473,6 +477,7 @@ PYBIND11_MODULE(_retro, m) {
 		.def("get_audio", &PyRetroEmulator::getAudio)
 		.def("get_audio_rate", &PyRetroEmulator::getAudioRate)
 		.def("get_resolution", &PyRetroEmulator::getResolution)
+		.def("set_av_enabled", &PyRetroEmulator::setAVEnabled)
 		.def("configure_data", &PyRetroEmulator::configureData)
 		.def("add_cheat", &PyRetroEmulator::addCheat)
 		.def("clear_cheats", &PyRetroEmulator::clearCheats)

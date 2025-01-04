@@ -155,6 +155,8 @@ class RetroEnv(gym.Env):
 
         self.render_mode = render_mode
 
+        self.em.set_av_enabled(False, (self.render_mode in {"human", "rgb_array"} and self._obs_type == retro.Observations.RAM))
+
     def _update_obs(self):
         if self._obs_type == retro.Observations.RAM:
             self.ram = self.get_ram()

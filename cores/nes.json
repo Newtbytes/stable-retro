@@ -1,6 +1,6 @@
 {
     "Nes": {
-        "lib": "fceumm",
+        "lib": "quicknes",
         "ext": ["nes"],
         "keybinds": ["Z", null, "TAB", "ENTER", "UP", "DOWN", "LEFT", "RIGHT", "X"],
         "buttons": ["B", null, "SELECT", "START", "UP", "DOWN", "LEFT", "RIGHT", "A"],
