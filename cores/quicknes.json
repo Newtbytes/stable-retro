@@ -1,5 +1,5 @@
 {
-    "Nes": {
+    "QuickNes": {
         "lib": "quicknes",
         "ext": ["qnes", "quicknes"],
         "keybinds": ["Z", null, "TAB", "ENTER", "UP", "DOWN", "LEFT", "RIGHT", "X"],
