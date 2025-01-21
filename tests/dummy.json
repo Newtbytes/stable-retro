@@ -28,6 +28,10 @@
 			"address": 0,
 			"type": "|u1"
 		},
+		"QuickNes": {
+			"address": 0,
+			"type": "|u1"
+		},
 		"PCEngine": {
 			"address": 16252928,
 			"type": "|u1"

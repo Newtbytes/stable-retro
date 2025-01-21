@@ -66,6 +66,7 @@ platform_globs = [
     "*-%s/*" % plat
     for plat in [
         "Nes",
+        "QuickNes",
         "Snes",
         "Genesis",
         "Atari2600",

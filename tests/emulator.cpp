@@ -27,7 +27,7 @@ struct EmulatorTestParamName {
 };
 
 void EmulatorTest::SetUp() {
-	for (const string& core : { "fceumm", "gambatte", "genesis_plus_gx", "mednafen_pce_fast", "mgba", "snes9x", "stella", "picodrive" }) {
+	for (const string& core : { "fceumm", "quicknes", "gambatte", "genesis_plus_gx", "mednafen_pce_fast", "mgba", "snes9x", "stella", "picodrive" }) {
 		ifstream in("../retro/cores/" + core + ".json");
 		ostringstream out;
 		Retro::corePath("../retro/cores");
@@ -131,6 +131,7 @@ TEST_P(EmulatorTest, States) {
 
 vector<EmulatorTestParam> s_systems{
 	{ "Nes", "Dr88-FamiconIntro.nes" },
+	{ "QuickNes", "Dr88-FamiconIntro.qnes" },
 	{ "Snes", "Anthrox-SineDotDemo.sfc" },
 	{ "Genesis", "Dekadence-Dekadrive.md" },
 	{ "Atari2600", "automaton.a26" },
