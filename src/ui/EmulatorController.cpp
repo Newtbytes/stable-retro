@@ -54,6 +54,7 @@ bool EmulatorController::loadGame(const QString& path) {
 	}
 
 	m_re.unloadCore();
+	m_re.setAVFlags(false, true);
 	m_initialState.clear();
 	if (!m_re.loadRom(path.toStdString())) {
 		return false;

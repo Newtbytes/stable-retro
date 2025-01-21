@@ -335,6 +335,21 @@ void Emulator::reconfigureAddressSpace() {
 	}
 }
 
+void Emulator::setAVFlags(bool audio, bool video) {
+	m_avFlags = 0;
+
+	if (audio) {
+		m_avFlags |= RETRO_AV_ENABLE_AUDIO;
+	}
+	else {
+		m_avFlags |= RETRO_AV_ENABLE_HARD_DISABLE_AUDIO;
+	}
+
+	if (video) {
+		m_avFlags |= RETRO_AV_ENABLE_VIDEO;
+	}
+}
+
 // callback for logging from emulator
 // turned off by default to avoid spamming the log, only used for debugging issues within cores
 static void cbLog(enum retro_log_level level, const char *fmt, ...) {
@@ -390,6 +405,11 @@ bool Emulator::cbEnvironment(unsigned cmd, void* data) {
 	case RETRO_ENVIRONMENT_GET_CAN_DUPE:
 		*reinterpret_cast<bool*>(data) = true;
 		return true;
+	case RETRO_ENVIRONMENT_GET_AUDIO_VIDEO_ENABLE: {
+		retro_av_enable_flags* av_flags = (retro_av_enable_flags*)data;
+		*av_flags = (retro_av_enable_flags)(s_loadedEmulator->m_avFlags);
+		return true;
+	}
 	case RETRO_ENVIRONMENT_SET_MEMORY_MAPS:
 		s_loadedEmulator->m_map.clear();
 		for (size_t i = 0; i < static_cast<const retro_memory_map*>(data)->num_descriptors; ++i) {

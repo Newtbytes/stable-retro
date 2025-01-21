@@ -42,6 +42,8 @@ public:
 	void unloadCore();
 	void unloadRom();
 
+	void setAVFlags(bool audio, bool video);
+
 	bool serialize(void* data, size_t size);
 	bool unserialize(const void* data, size_t size);
 	size_t serializeSize();
@@ -70,6 +72,8 @@ private:
 	static int16_t cbInputState(unsigned port, unsigned device, unsigned index, unsigned id);
 
 	bool m_buttonMask[MAX_PLAYERS][N_BUTTONS]{};
+
+	int m_avFlags = RETRO_AV_ENABLE_AUDIO | RETRO_AV_ENABLE_VIDEO;
 
 	// Video frame info
 	const void* m_imgData = nullptr;
